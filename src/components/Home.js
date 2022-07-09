@@ -1,7 +1,23 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { getAllPosts } from "../api";
+import PostPage from  "./PostPage"
 
-const Home = () => {
-    console.log('Ostrander?! I hardly O know \'er!')
-}
-
+const Home = ({allPosts}) => {
+  return (
+    <div className="posts-main-countainer">
+      <h1>Posts</h1>
+      {allPosts.length
+        ? allPosts.map((post) => {
+            return post.active ? (
+              <Link to={`/posts/${post._id}`} key={post._id}>
+                <PostPage post={post} />
+              </Link>
+            ) : null;
+          })
+        : null}
+    </div>
+  );
+};
 
 export default Home;

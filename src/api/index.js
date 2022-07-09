@@ -109,3 +109,55 @@ export async function makeNewPost(title, description, price, location){
   return result
   
 }
+
+
+export async function editPost(
+  title,
+  description,
+  price,
+  location,
+  willDeliver,
+  POST_ID
+) {
+  const token = getToken();
+
+  try {
+    const response = await fetch(`${BASE_URL}/users/me`, 
+      {
+        post: {
+          title,
+          description,
+          price,
+          location,
+          willDeliver,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/JSON",
+          "Authorization": `Bearer ${token}`,
+        },
+      }
+    );
+    const result = await response.json();
+    const token = result.data.token;
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+export const deletePost = async (token, postID) => {
+  try {
+    await fetch(`${BASE_URL}/posts/${postID}`, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
