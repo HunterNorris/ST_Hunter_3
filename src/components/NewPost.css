@@ -1,0 +1,35 @@
+.newPostBox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+    background-color: #CFCFCF;
+    align-items: baseline;
+
+
+    /* border-style: groove; */
+}
+
+.description {
+    width: 375px;
+    height: 100px;
+    display: flex;
+   }
+
+   .title {
+    display: flex;
+    align-items: flex-end;
+    width: 375px
+   }
+
+   .price {
+        width: 248px;
+   }
+
+   .location {
+    width: 225px;
+   }
+
+   .formProp {
+    margin: 4px;
+   }

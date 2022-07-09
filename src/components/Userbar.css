@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+
+.userbar {
+    display: flex;
+    justify-content: right;
+    background-color: black;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    gap: 15px;
+
+}
