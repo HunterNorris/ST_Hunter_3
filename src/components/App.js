@@ -34,7 +34,7 @@ const App = () => {
     <div>
       <Header isLoggedIn={isLoggedIn} />
       { isLoggedIn? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null }
-     
+     <Search />
       <Routes>
         <Route path="/" element={<PostPage />}/>
         <Route path="/posts" element={<PostPage />}/>
