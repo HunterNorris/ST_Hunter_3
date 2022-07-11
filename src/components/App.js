@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Header, Login, MyPosts, NewPost, PostPage, Profile, Register, Userbar, ModPost,Search,MessageForm } from "./";
+import { Header, Login, MyPosts, NewPost, PostPage, Profile, Register, Userbar, ModPost } from "./";
 import "./App.css";
 
 
@@ -33,8 +33,7 @@ const App = () => {
     <div>
       <Header isLoggedIn={isLoggedIn} />
       { isLoggedIn? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null }
-     <Search/>
-     <MessageForm/>
+     
       <Routes>
         <Route path="/" element={<PostPage />}/>
         <Route path="/posts" element={<PostPage />}/>
@@ -43,6 +42,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />}/>
         <Route path="/newpost" element={<NewPost />}/>
         <Route path="/myposts" element={<MyPosts />}/>
+
         <Route path="/modpost" element={<ModPost />}/>
         {/* <Route path='/home" */}
       </Routes>
