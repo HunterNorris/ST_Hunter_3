@@ -42,6 +42,7 @@ const App = () => {
         <Route path="/profile" element={<Profile />}/>
         <Route path="/newpost" element={<NewPost />}/>
         <Route path="/myposts" element={<MyPosts />}/>
+
         <Route path="/modpost" element={<ModPost />}/>
         {/* <Route path='/home" */}
       </Routes>

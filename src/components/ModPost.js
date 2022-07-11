@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 const ModPost = ({singlePost}) => {
     const [title, setTitle] = useState(singlePost.title)
     const [description, setDescription] = useState(singlePost.description)
