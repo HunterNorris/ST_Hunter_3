@@ -2,8 +2,8 @@ import React,  { useState } from "react";
 import { useParams } from "react-router-dom";
 import { addMessage } from "../api";
 
-const MessageForm = ({ token }) => {
-  const { POST_ID } = useParams();
+const MessageForm = () => {
+
   const [content, setContent] = useState("");
 
   const handleOnChange = (event) => {
@@ -16,15 +16,11 @@ const MessageForm = ({ token }) => {
   const handleMessage = async (event) => {
     event.preventDefault();
     const token = localStorage.getItem("token");
-    try {
-      const response = await addMessage(token, POST_ID, content);
-      const data = await response.json();
-      console.log(data, "handle message data show me the money");
-      console.log(response, "handle message response show me the money");
-    } catch (error) {
-      console.error(error);
+    const POST_ID = localStorage.getItem('POST_ID')
+    addMessage(token, POST_ID, content);
+  
     }
-  };
+
   return (
     <form onSubmit={handleMessage}>
       <h3>Message Form</h3>

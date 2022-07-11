@@ -173,7 +173,7 @@ export const addMessage = async (token, POST_ID, content) => {
     
   
   const result = await response.json()
-  console.log(result, "messages?? possibly")
+  console.log({result}, "messages?? possibly")
 
   return result 
   };
