@@ -27,6 +27,7 @@ const PostPage = (props) => {
           <div>
             <div>{posts.location}</div>
             <div>{posts.price}</div>
+            <button>Message Poster About This Item</button>
           </div>
           
         </div>

@@ -4,6 +4,7 @@ import { getUserInfo } from "../api";
 const Profile = (props) => {
     let token = localStorage.getItem("token");
     const [myInfo, setMyInfo] = useState({})
+
     useEffect(()=> {
         // token = localStorage.getItem("token")
         async function getMyInfo(){
@@ -14,6 +15,7 @@ const Profile = (props) => {
         getMyInfo()
     },[])
     // console.log(myInfo, "this is line 17")
+    
     return (
         <div className="box"> 
   

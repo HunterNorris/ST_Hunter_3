@@ -1,0 +1,11 @@
+
+
+.postoptions {
+    display: flex;
+    justify-content: left;
+    background-color: black;
+    font-family: 'Raleway', sans-serif;
+    padding: 5px;
+    gap: 25px;
+
+}
