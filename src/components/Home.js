@@ -5,17 +5,8 @@ import PostPage from  "./PostPage"
 
 const Home = ({allPosts}) => {
   return (
-    <div className="posts-main-countainer">
+    <div>
       <h1>Posts</h1>
-      {allPosts.length
-        ? allPosts.map((post) => {
-            return post.active ? (
-              <Link to={`/posts/${post._id}`} key={post._id}>
-                <PostPage post={post} />
-              </Link>
-            ) : null;
-          })
-        : null}
     </div>
   );
 };
