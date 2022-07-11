@@ -5,15 +5,10 @@ import {ModPost} from "./"
 import './MyPosts.css'
 
 const MyPosts = (props) => {
+    const [isShown,setIsShown]= useState(false)
     let token = localStorage.getItem("token");
     const [myInfo, setMyInfo] = useState({})
     const [singlePost, setSinglePost] = useState ([])
-
-    const handleMessage = (event) => {
-      const singledOutPost = myInfo.data.posts.filter(element =>element._id == event.target.id)
-      setSinglePost(singledOutPost[0])
-      return singlePost
-    }
 
     useEffect(()=> {
         token = localStorage.getItem("token")
@@ -42,13 +37,19 @@ const MyPosts = (props) => {
               <div className="postoptions">
                 <button
                  onClick={(event) => {
-                 handleMessage (event)
+                 setIsShown(true)
+                 console.log(isShown,"show me the money")
+              
                  }}>Edit Post</button>
-           <ModPost {posts._id, posts.title, posts.description, posts} />
+          
 
               <button>Delete Post</button>
+            
               </div>
-            </div>           
+            </div>  
+                  <div> 
+                {isShown ? <ModPost/> :null}
+              </div>     
           </div>
             )
            

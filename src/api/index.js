@@ -148,9 +148,9 @@ export async function editPost(
 }
 
 
-export const deletePost = async (token, post_ID) => {
+export const deletePost = async (token, POST_ID) => {
   try {
-    await fetch(`${BASE_URL}/posts/${postID}`, {
+    await fetch(`${BASE_URL}/posts/${POST_ID}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",

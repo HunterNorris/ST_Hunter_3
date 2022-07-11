@@ -2,11 +2,11 @@ import React, { useState } from "react";
 
 
 
-const ModPost = ({singlePost}) => {
-    const [title, setTitle] = useState(singlePost.title)
-    const [description, setDescription] = useState(singlePost.description)
-    const [price, setPrice] = useState(singlePost.price)
-    const [location, setLocation] = useState(singlePost.location)
+const ModPost = () => {
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [price, setPrice] = useState('')
+    const [location, setLocation] = useState('')
 
     const handleOnChange =(event) => {
         const changed = event.target.id
@@ -85,6 +85,7 @@ const ModPost = ({singlePost}) => {
                <button type="submit">Post It</button>
             </form>
         </div>
+        
     )
 }
 
