@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Header, Login, MyPosts, NewPost, PostPage, Profile, Register, Userbar, ModPost } from "./";
+import { Header, Login, MyPosts, NewPost, PostPage, Register, Userbar, ModPost, MessageForm } from "./";
 import "./App.css";
 
 
@@ -33,13 +33,13 @@ const App = () => {
     <div>
       <Header isLoggedIn={isLoggedIn} />
       { isLoggedIn? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null }
+
      
       <Routes>
         <Route path="/" element={<PostPage />}/>
         <Route path="/posts" element={<PostPage />}/>
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
         <Route path="/register" element={<Register />}/>
-        <Route path="/profile" element={<Profile />}/>
         <Route path="/newpost" element={<NewPost />}/>
         <Route path="/myposts" element={<MyPosts />}/>
 

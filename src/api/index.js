@@ -157,7 +157,7 @@ export const deletePost = async (token, POST_ID) => {
 };
 
 export const addMessage = async (token, POST_ID, content) => {
-  try {
+
     const response = await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}/messages`, {
       method: "POST",
       headers: {
@@ -170,11 +170,10 @@ export const addMessage = async (token, POST_ID, content) => {
         },
       }),
     });
-    const result = await response.json();
+    
+  
+  const result = await response.json()
+  console.log(result, "messages?? possibly")
 
-        return result.data.token
-        console.log(result)
-  } catch (error) {
-    console.error(error);
-  }
-};
+  return result 
+  };

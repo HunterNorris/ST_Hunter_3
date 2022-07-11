@@ -7,9 +7,9 @@ const ModPost = ({ singlePost,setIsShown }) => {
   const [price, setPrice] = useState(singlePost.price);
   const [location, setLocation] = useState(singlePost.location);
 
-  const refreshPage =()=>{
-    return window.location.reload(false)
-  }
+//   const refreshPage =()=>{
+//     return window.location.reload(false)
+//   }
 
   const handleOnChange = (event) => {
     const changed = event.target.id;

@@ -1,9 +1,13 @@
 import React, {useState, useEffect } from "react";
 import { getAllPosts } from "../api";
+import Messageform from "./MessageForm";
 import './PostPage.css'
 
 const PostPage = (props) => {
     const [allPosts, setAllPosts] = useState([]);
+    const [isShown, setIsShown] = useState(false);
+    const [clickID,setClickID] = useState("");
+
     // const fetchAllPosts = async () => {
     //   const data = await getAllPosts();
     //   setAllPosts(data);
@@ -27,9 +31,15 @@ const PostPage = (props) => {
           <div>
             <div>{posts.location}</div>
             <div>{posts.price}</div>
-            <button>Message Poster About This Item</button>
+            <button
+            onClick={(event) => {
+              setIsShown(true)
+               setClickID(`${posts._id}`)
+            }}
+            
+            >Message Poster About This Item</button>
           </div>
-          
+          {isShown && clickID ===`${posts._id}` ? <Messageform singlePost= {posts} setIsShown={setIsShown}/> :null}
         </div>
       );
     });
