@@ -148,7 +148,7 @@ export async function editPost(
 }
 
 
-export const deletePost = async (token, postID) => {
+export const deletePost = async (token, post_ID) => {
   try {
     await fetch(`${BASE_URL}/posts/${postID}`, {
       method: "DELETE",
@@ -157,6 +157,29 @@ export const deletePost = async (token, postID) => {
         "Authorization": `Bearer ${token}`,
       },
     });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const addMessage = async (token, POST_ID, content) => {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${POST_ID}/messages`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        message: {
+          content,
+        },
+      }),
+    });
+    const result = await response.json();
+
+        return result.data.token
+        console.log(result)
   } catch (error) {
     console.error(error);
   }
