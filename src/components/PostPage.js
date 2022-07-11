@@ -18,7 +18,7 @@ const PostPage = (props) => {
           console.error(error);
         });
     }, []);
-  
+  console.log(props, "show me the money")
     const displayPosts = allPosts.map((posts, index) => {
       return (
         <div className="fullPost" key={index}>
