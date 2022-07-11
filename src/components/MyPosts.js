@@ -41,6 +41,7 @@ const MyPosts = (props) => {
                  console.log(isShown,"show me the money")
               
                  }}>Edit Post</button>
+                 {/* this is line 44 */}
           
 
               <button>Delete Post</button>
