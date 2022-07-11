@@ -40,17 +40,12 @@ const MyPosts = (props) => {
               <div>{posts.price}</div>
               <div>post ID: {posts._id}</div>
               <div className="postoptions">
-              {/* <Link to="/modpost">EDIT POST</Link>              
-              <Link to="/delete">DELETE POST</Link> */}
-              <Link to="/modpost">
-                <button id={`${posts._id}`}
+                <button
                  onClick={(event) => {
                  handleMessage (event)
                  }}>Edit Post</button>
-              </Link>
-              <Routes>
-                <Route to="/modpost" element={<ModPost singlePost={posts}/>}></Route>
-              </Routes>
+           <ModPost {posts._id, posts.title, posts.description, posts} />
+
               <button>Delete Post</button>
               </div>
             </div>           
@@ -67,4 +62,5 @@ const MyPosts = (props) => {
 }
 
 export default MyPosts
+
 
