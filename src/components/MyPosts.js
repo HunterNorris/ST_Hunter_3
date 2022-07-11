@@ -6,6 +6,7 @@ import './MyPosts.css'
 
 const MyPosts = (props) => {
     const [isShown,setIsShown]= useState(false)
+    const [clickID,setClickID] = useState("")
     let token = localStorage.getItem("token");
     const [myInfo, setMyInfo] = useState({})
     const [singlePost, setSinglePost] = useState ([])
@@ -38,6 +39,8 @@ const MyPosts = (props) => {
                 <button
                  onClick={(event) => {
                  setIsShown(true)
+                  setClickID(`${posts._id}`)
+                  console.log(clickID, "show me the money 2")
                  console.log(isShown,"show me the money")
               
                  }}>Edit Post</button>
@@ -49,7 +52,7 @@ const MyPosts = (props) => {
               </div>
             </div>  
                   <div> 
-                {isShown ? <ModPost/> :null}
+                {isShown && clickID ===`${posts._id}` ? <ModPost singlePost= {posts} setIsShown={setIsShown}/> :null}
               </div>     
           </div>
             )

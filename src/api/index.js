@@ -1,5 +1,3 @@
-import axios from "axios"
-
 
 const BASE_URL = "https://strangers-things.herokuapp.com/api/"
 const COHORT_NAME = "2206-FTB-ET-WEB-FT"
@@ -116,41 +114,37 @@ export async function editPost(
   description,
   price,
   location,
-  willDeliver,
   POST_ID
 ) {
-  const token = getToken();
-
-  try {
-    const response = await fetch(`${BASE_URL}/users/me`, 
-      {
-        post: {
-          title,
-          description,
-          price,
-          location,
-          willDeliver,
-        },
-      },
-      {
-        headers: {
-          "Content-Type": "application/JSON",
-          "Authorization": `Bearer ${token}`,
-        },
+  const token = localStorage.getItem("token")
+  const response = await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}`, {
+    method: "PATCH",
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+      post: {
+        title: title,
+        description: description,
+        price: price,
+        location: location,
+        
       }
-    );
-    const result = await response.json();
-    const token = result.data.token;
-    return data;
-  } catch (error) {
-    throw error;
-  }
+  })
+})
+  
+  const result = await response.json()
+  console.log(result, "edit post possibly")
+
+  return result 
 }
+
 
 
 export const deletePost = async (token, POST_ID) => {
   try {
-    await fetch(`${BASE_URL}/posts/${POST_ID}`, {
+    await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
@@ -164,7 +158,7 @@ export const deletePost = async (token, POST_ID) => {
 
 export const addMessage = async (token, POST_ID, content) => {
   try {
-    const response = await fetch(`${BASE_URL}/posts/${POST_ID}/messages`, {
+    const response = await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}/messages`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
