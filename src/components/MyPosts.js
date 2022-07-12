@@ -24,10 +24,14 @@ const MyPosts = (props, {title}) => {
 
     console.log(myInfo, "this is line 18")
 
+    const filteredPosts = myInfo.data ? myInfo.data.posts.filter((post)=> {
+      return post.active
+    }): null
+
     return (
         <div className="box"> 
   
-        {myInfo.data && myInfo.data.posts.active == true ? myInfo.data.posts.map((posts, index) => {
+        {myInfo.data ? filteredPosts.map((posts, index) => {
             return (
           <div className="fullPost" key={index}>
             <div className="title">{posts.title}</div>

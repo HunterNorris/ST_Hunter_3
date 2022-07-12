@@ -22,21 +22,8 @@ const userMessages = user.messages;
 const userName = user.username;
 console.log()
   return (
-    // <div className="box">
-    //   {myInfo.data ? (
-    //     <div>
-    //       <div>{myInfo.data.posts}</div>
-    //       <div>username: {myInfo.data.username}</div>
-    //     </div>
-    //   ) : null}
-    // </div>
 
-        <div>
-    {/* <div className="title">{posts.title}</div>
-    <div>{posts.messages.content}</div>
-    <div>From User: {posts.messages.content.fromUser.username}</div> */}
-
-
+    <div>
     {userMessages && userMessages.length
           ? userMessages.map((message) => {
               return (
@@ -48,6 +35,6 @@ console.log()
               );
             })
           : null}
-        </div>
+    </div>
   )}
 export default MyMessages;
