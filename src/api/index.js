@@ -78,7 +78,7 @@ export async function getUserInfo(token){
     
     const result = await response.json()
     // const token = result.data.token
-    return result;
+    return result.data;
   } catch (error) {
     throw error;
   }
@@ -145,16 +145,18 @@ export async function editPost(
 export const deletePost = async (POST_ID) => {
   const token = localStorage.getItem('token')
   try {
-    await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}`, {
+   const response = await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}`, {
       method: "DELETE",
       headers: {
         "Content-type": "application/json",
         "Authorization": `Bearer ${token}`,
       },
     });
+    const result = await response.json()
+  return result;
   } catch (error) {
     console.error(error);
-  }
+  } 
 };
 
 export const addMessage = async (POST_ID, content) => {

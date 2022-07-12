@@ -1,7 +1,7 @@
 import React from "react";
 import { deletePost } from "../api";
 
-const Delete = ({singlePost, setShowDelete}) => {
+const Delete = ({singlePost, setShowDelete, myInfo,setMyInfo}) => {
 
     return (
         <div>
@@ -9,9 +9,16 @@ const Delete = ({singlePost, setShowDelete}) => {
             </div>
             <div>
                 <button
-                onClick={(event) =>{
-                    deletePost(singlePost._id)
-                    setShowDelete(false)
+                onClick={async (event) =>{
+                   const confirmation = await deletePost(singlePost._id)
+                    setShowDelete(false);
+                    console.log(myInfo.posts, "show me BIG DELETE ")
+                    if (confirmation.success ){
+                        setMyInfo({...myInfo ,posts:myInfo.posts.filter((post)=> {
+                            return(post._id !== singlePost._id)
+                        })})
+                    }
+                    
                 }}
                 
                 >Yep!</button>

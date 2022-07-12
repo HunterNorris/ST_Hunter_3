@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import {
   Header,
@@ -36,7 +36,14 @@ const g */
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const token = localStorage.getItem("token")
+  const [token,setToken] = useState('')
+  useEffect(()=>{
+   const checktoken = localStorage.getItem('token') 
+   if (checktoken){
+    setToken(checktoken);
+    setIsLoggedIn(true);
+   }
+  }, [])
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />

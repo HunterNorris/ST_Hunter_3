@@ -22,7 +22,7 @@ console.log(myInfo, "show me the money")
   return (
 
     <div>
-    {myInfo.data ? myInfo.data.messages.map((message, index)=>{
+    {myInfo.messages ? myInfo.messages.map((message, index)=>{
       return( <div className="MessageBox" key={index}>
 
         <div className="username">From User: {message.fromUser.username}</div>

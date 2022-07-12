@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, Routes, Route } from "react-router-dom";
-import { getUserInfo, getAllPosts } from "../api";
-import {ModPost, Delete} from "./"
-import './MyPosts.css'
+import { useEffect, useState } from "react";
+import { getUserInfo } from "../api";
+import { Delete, ModPost } from "./";
+import './MyPosts.css';
 
 const MyPosts = (props, {title}) => {
     const [isShown,setIsShown]= useState(false)
@@ -24,14 +23,14 @@ const MyPosts = (props, {title}) => {
 
     console.log(myInfo, "this is line 18")
 
-    const filteredPosts = myInfo.data ? myInfo.data.posts.filter((post)=> {
+    const filteredPosts = myInfo.posts ? myInfo.posts.filter((post)=> {
       return post.active
     }): null
-
+    
     return (
         <div className="box"> 
   
-        {myInfo.data ? filteredPosts.map((posts, index) => {
+        {myInfo.posts ? filteredPosts.map((posts, index) => {
             return (
           <div className="fullPost" key={index}>
             <div className="title">{posts.title}</div>
@@ -39,7 +38,6 @@ const MyPosts = (props, {title}) => {
             <div>
               <div>{posts.location}</div>
               <div>{posts.price}</div>
-              <div>post ID: {posts._id}</div>
               <div className="postoptions">
                 <button
                  onClick={(event) => {
@@ -60,7 +58,7 @@ const MyPosts = (props, {title}) => {
               </div>     
               <div>
                 {showDelete && clickID === `${posts._id}` ?
-                <Delete singlePost = {posts} setShowDelete={setShowDelete}/> :null}
+                <Delete singlePost = {posts} setShowDelete={setShowDelete} myInfo={myInfo} setMyInfo={setMyInfo}/> :null}
               </div>
           </div>
             )    
