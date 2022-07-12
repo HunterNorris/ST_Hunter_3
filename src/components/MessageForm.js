@@ -1,5 +1,4 @@
 import React,  { useState } from "react";
-import { useParams } from "react-router-dom";
 import { addMessage } from "../api";
 
 const MessageForm = ({singlePost, setIsShown}) => {
@@ -33,8 +32,6 @@ const MessageForm = ({singlePost, setIsShown}) => {
   );
 };
 export default MessageForm;
-
-
 
 
 
