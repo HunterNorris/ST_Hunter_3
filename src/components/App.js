@@ -36,11 +36,11 @@ const g */
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const token = localStorage.getItem("token")
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />
-      {isLoggedIn ? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null}
+      {isLoggedIn || token ? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null}
 
       <Routes>
         <Route path="/" element={<PostPage />} />

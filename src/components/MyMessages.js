@@ -1,40 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { getUserInfo } from "../api";
+import "./MyMessages.css";
 
 const MyMessages = (props) => {
   let token = localStorage.getItem("token");
   const [myInfo, setMyInfo] = useState({});
-  const [user, setUser] = useState({});
 
 
   useEffect(() => {
-    // token = localStorage.getItem("token")
     async function getMyInfo() {
       const myReturnedInfo = await getUserInfo(token);
       console.log(myReturnedInfo, "<<this is the returned info");
-      setMyInfo(myReturnedInfo); 
-      setUser(myInfo.data)
+      setMyInfo(myReturnedInfo);
+      
+      
     }
     getMyInfo();
   }, []);
-const userPosts = user.posts;
-const userMessages = user.messages;
-const userName = user.username;
-console.log()
+
+console.log(myInfo, "show me the money")
   return (
 
     <div>
-    {userMessages && userMessages.length
-          ? userMessages.map((message) => {
-              return (
-                <div key={message._id}>
-                  <h2>From User: {message.fromUser.username}</h2>
-                  <h3>{message.post.title}</h3>
-                  <p>{message.content}</p>
-                </div>
-              );
-            })
-          : null}
+    {myInfo.data ? myInfo.data.messages.map((message, index)=>{
+      return( <div className="MessageBox" key={index}>
+
+        <div>From User: {message.fromUser.username}</div>
+
+        <div>Regarding: {message.post.title}</div>
+        
+        <div>{message.content}</div>
+       
+      </div>
+      
+      
+      )
+    }):null}
     </div>
   )}
 export default MyMessages;
