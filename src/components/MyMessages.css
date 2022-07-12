@@ -1,4 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Raleway:wght@100&display=swap');
+
 .MessageBox{
     border-style: groove;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    
 
+}
+.username {
+    background-color: #383838;
+    color: white;
+}
+
+.regard {
+    background-color: #C8C8C8;
+}
+
+.content{
+    margin-top: 7px;
+    margin-bottom: 2px
 }

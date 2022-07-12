@@ -25,11 +25,11 @@ console.log(myInfo, "show me the money")
     {myInfo.data ? myInfo.data.messages.map((message, index)=>{
       return( <div className="MessageBox" key={index}>
 
-        <div>From User: {message.fromUser.username}</div>
+        <div className="username">From User: {message.fromUser.username}</div>
 
-        <div>Regarding: {message.post.title}</div>
+        <div className="regard">Regarding: {message.post.title}</div>
         
-        <div>{message.content}</div>
+        <div className="content">{message.content}</div>
        
       </div>
       
