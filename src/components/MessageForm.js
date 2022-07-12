@@ -2,7 +2,7 @@ import React,  { useState } from "react";
 import { useParams } from "react-router-dom";
 import { addMessage } from "../api";
 
-const MessageForm = () => {
+const MessageForm = ({singlePost, setIsShown}) => {
 
   const [content, setContent] = useState("");
 
@@ -15,9 +15,8 @@ const MessageForm = () => {
 
   const handleMessage = async (event) => {
     event.preventDefault();
-    const token = localStorage.getItem("token");
-    const POST_ID = localStorage.getItem('POST_ID')
-    addMessage(token, POST_ID, content);
+    addMessage(singlePost._id, content);
+    setIsShown(false)
   
     }
 

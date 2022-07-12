@@ -11,7 +11,7 @@ const Header = ({ isLoggedIn })=>{
                 <Link to="/posts"> POSTS </Link>
                 <Link to="/login"> LOGIN </Link>
                 <Link to="/Register"> REGISTER</Link>
-                <Link to="/Profile"> PROFILE</Link>
+
                  {/* {isLoggedIn ? <div classname="userBar">
                 <Link to="/newPost"> MAKE A POST </Link>
                 <Link to="/Messages"> MESSAGES </Link>

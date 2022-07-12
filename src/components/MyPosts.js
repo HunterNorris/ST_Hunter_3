@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import { getUserInfo, getAllPosts } from "../api";
-import {ModPost} from "./"
+import {ModPost, Delete} from "./"
 import './MyPosts.css'
 
-const MyPosts = (props) => {
+const MyPosts = (props, {title}) => {
     const [isShown,setIsShown]= useState(false)
+    const [showDelete, setShowDelete]= useState(false)
     const [clickID,setClickID] = useState("")
     let token = localStorage.getItem("token");
     const [myInfo, setMyInfo] = useState({})
@@ -40,23 +41,25 @@ const MyPosts = (props) => {
                  onClick={(event) => {
                  setIsShown(true)
                   setClickID(`${posts._id}`)
-                  console.log(clickID, "show me the money 2")
-                 console.log(isShown,"show me the money")
-              
                  }}>Edit Post</button>
-                 {/* this is line 44 */}
           
-
-              <button>Delete Post</button>
+               <button
+                onClick={(event) => {
+                setShowDelete(true)
+                setClickID(`${posts._id}`)
+              }}>Delete Post</button>
             
               </div>
             </div>  
                   <div> 
                 {isShown && clickID ===`${posts._id}` ? <ModPost singlePost= {posts} setIsShown={setIsShown}/> :null}
               </div>     
+              <div>
+                {showDelete && clickID === `${posts._id}` ?
+                <Delete singlePost = {posts} setShowDelete={setShowDelete}/> :null}
+              </div>
           </div>
-            )
-           
+            )    
          }): null
         }
 

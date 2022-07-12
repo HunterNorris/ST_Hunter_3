@@ -36,6 +36,7 @@ const ModPost = ({ singlePost,setIsShown }) => {
     editPost(title, description, price, location, singlePost._id);
     const token = localStorage.getItem("token");
     setIsShown(false)
+ 
   };
 
   return (

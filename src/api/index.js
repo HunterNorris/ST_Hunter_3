@@ -142,7 +142,8 @@ export async function editPost(
 
 
 
-export const deletePost = async (token, POST_ID) => {
+export const deletePost = async (POST_ID) => {
+  const token = localStorage.getItem('token')
   try {
     await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}`, {
       method: "DELETE",
@@ -156,8 +157,8 @@ export const deletePost = async (token, POST_ID) => {
   }
 };
 
-export const addMessage = async (token, POST_ID, content) => {
-
+export const addMessage = async (POST_ID, content) => {
+    const token = localStorage.getItem('token')
     const response = await fetch(`${BASE_URL}${COHORT_NAME}/posts/${POST_ID}/messages`, {
       method: "POST",
       headers: {
@@ -166,7 +167,7 @@ export const addMessage = async (token, POST_ID, content) => {
       },
       body: JSON.stringify({
         message: {
-          content,
+          content: content
         },
       }),
     });

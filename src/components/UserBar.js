@@ -16,7 +16,7 @@ const Userbar = ({ setIsLoggedIn })=>{
            
             
                 <Link to="/newpost"> MAKE A POST </Link>
-                <Link to="/Messages"> myMESSAGES </Link>
+                <Link to="/mymessages"> myMESSAGES </Link>
                 <Link to="/myposts"> myPOSTS</Link>
                 <button onClick={logOut}>LOG OUT!</button>
                 

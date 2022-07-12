@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Header, Login, MyPosts, NewPost, PostPage, Register, Userbar, ModPost, MessageForm } from "./";
+import {
+  Header,
+  Login,
+  ModPost,
+  MyMessages,
+  MyPosts,
+  NewPost,
+  PostPage,
+  Register,
+  Userbar,
+} from "./";
 import "./App.css";
-
 
 // This would be in your component File
 async function handleSubmit(event) {
@@ -26,30 +35,32 @@ const g */
 }
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div>
       <Header isLoggedIn={isLoggedIn} />
-      { isLoggedIn? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null }
+      {isLoggedIn ? <Userbar setIsLoggedIn={setIsLoggedIn} /> : null}
 
-     
       <Routes>
-        <Route path="/" element={<PostPage />}/>
-        <Route path="/posts" element={<PostPage />}/>
-        <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/newpost" element={<NewPost />}/>
-        <Route path="/myposts" element={<MyPosts />}/>
+        <Route path="/" element={<PostPage />} />
+        <Route path="/posts" element={<PostPage />} />
+        <Route
+          path="/login"
+          element={<Login setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="/register" element={<Register />} />
+        <Route path="/newpost" element={<NewPost />} />
+        <Route path="/myposts" element={<MyPosts />} />
 
-        <Route path="/modpost" element={<ModPost />}/>
+        <Route path="/modpost" element={<ModPost />} />
+        <Route path="/mymessages" element={<MyMessages />} />
         {/* <Route path='/home" */}
       </Routes>
 
       {/* <Register />
       <Login /> */}
-    
+
       {/* <div id='main-section'>
           <Switch>
           <Route path="/login">
@@ -63,7 +74,6 @@ const App = () => {
           </Route>
           </Switch>
       </div> */}
-      
     </div>
   );
 };
